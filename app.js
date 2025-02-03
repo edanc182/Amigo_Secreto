@@ -13,11 +13,11 @@ function agregarAmigo() {
         return;
     }
 
-    // Agregar a la lista y actualizar visualización
+    // Agregar a la lista
     amigos.push(nombre);
     actualizarListaAmigos();
     
-    // Limpiar campo de entrada y mantener el foco
+    // Limpiar campo de entrada
     input.value = '';
     input.focus();
 }
@@ -27,7 +27,7 @@ function actualizarListaAmigos() {
     const lista = document.getElementById('listaAmigos');
     lista.innerHTML = ''; // Limpiar lista
     
-    // Crear elementos li para cada amigo
+    // Crear elementos de lista para cada amigo
     amigos.forEach(amigo => {
         const li = document.createElement('li');
         li.textContent = amigo;
@@ -37,13 +37,13 @@ function actualizarListaAmigos() {
 
 // Función para realizar el sorteo
 function sortearAmigo() {
-    // Validar que haya amigos en la lista
+    // Validación de lista
     if (amigos.length === 0) {
         alert('❌ Primero agrega amigos a la lista');
         return;
     }
 
-    // Generar índice aleatorio
+    // Generar índice
     const indiceAleatorio = Math.floor(Math.random() * amigos.length);
     const ganador = amigos[indiceAleatorio];
 
@@ -56,7 +56,7 @@ function sortearAmigo() {
     `;
 }
 
-// Evento para agregar con tecla Enter
+// Enter = Agregar
 document.getElementById('amigo').addEventListener('keypress', function(e) {
     if (e.key === 'Enter') {
         agregarAmigo();
